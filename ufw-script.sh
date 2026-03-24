@@ -405,13 +405,13 @@ apply_base_rules() {
     ufw allow out 80/tcp comment 'HTTP updates'
     ufw allow out 443/tcp comment 'HTTPS updates'
     ufw allow out 123/udp comment 'NTP client'
-    ufw allow out proto icmp comment 'ICMP outbound'
+    ufw allow out to any proto icmp comment 'ICMP outbound'
     add_rule_note "ALLOW OUT any -> port 53/udp"
     add_rule_note "ALLOW OUT any -> port 53/tcp"
     add_rule_note "ALLOW OUT any -> port 80/tcp"
     add_rule_note "ALLOW OUT any -> port 443/tcp"
     add_rule_note "ALLOW OUT any -> port 123/udp"
-    add_rule_note "ALLOW OUT proto icmp"
+    add_rule_note "ALLOW OUT any -> proto icmp"
 
     ufw limit 22/tcp comment 'SSH rate limit'
     add_rule_note "LIMIT IN  any -> port 22/tcp"
